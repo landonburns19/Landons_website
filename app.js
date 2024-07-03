@@ -227,9 +227,9 @@ function visualizeMap(map1, dim1) {
                 case 0:
                     cell.style.backgroundColor = 'green';
                     break;
-       /*         case 1:
+                case 1:
                     cell.style.backgroundColor = 'blue';
-                    break;   */
+                    break;   
                 case 2:
                     cell.style.backgroundColor = 'blue';
                     break;
