@@ -206,6 +206,47 @@ function checker(dim1, map1) {
 }
 
 
+
+function visualizeMap(map1, dim1) {
+    const mapContainer = document.getElementById('map-container');
+    mapContainer.innerHTML = ''; // Clear any previous visualization
+
+    const cellSize = 5; // Adjust this value for larger or smaller cells
+
+    mapContainer.style.display = 'grid';
+    mapContainer.style.gridTemplateColumns = `repeat(${dim1}, ${cellSize}px)`;
+    mapContainer.style.gridTemplateRows = `repeat(${dim1}, ${cellSize}px)`;
+
+    for (let i = 0; i < dim1; i++) {
+        for (let j = 0; j < dim1; j++) {
+            const cell = document.createElement('div');
+            cell.style.width = `${cellSize}px`;
+            cell.style.height = `${cellSize}px`;
+
+            // Set color based on type1 value
+            switch (map1[j][i].type1) {
+                case 0:
+                    cell.style.backgroundColor = 'green';
+                    break;
+                case 1:
+                    cell.style.backgroundColor = 'blue';
+                    break;
+                case 2:
+                    cell.style.backgroundColor = 'grey';
+                    break;
+                case 3:
+                    cell.style.backgroundColor = 'red';
+                    break;
+                default:
+                    cell.style.backgroundColor = 'white';
+            }
+
+            mapContainer.appendChild(cell);
+        }
+    }
+}
+
+
 function simulateMapProcessing() {
     const dim1 = 100; 
     const map1 = Array.from({ length: dim1 + 1 }, () => Array.from({ length: dim1 + 1 }, () => new Qual()));
@@ -242,7 +283,7 @@ function simulateMapProcessing() {
             console.log(row);
         }
     } while (checker(dim1, map1));
+    visualizeMap(map1, dim1);
 }
 
 
-// simulateMapProcessing();

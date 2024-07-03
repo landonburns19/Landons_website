@@ -44,3 +44,8 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
+#map-container {
+    display: grid;
+    gap: 1px; 
+}
